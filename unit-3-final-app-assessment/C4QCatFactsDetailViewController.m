@@ -7,10 +7,13 @@
 //
 
 #import "C4QCatFactsDetailViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #define CAT_GIF_URL @"http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
 
 @interface C4QCatFactsDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *catFactLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *catImage;
 
 @end
 
@@ -18,6 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.catFactLabel.text = self.catFactString;
+    
+    [self.catImage sd_setImageWithURL:[NSURL URLWithString:self.catImageURLString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+       
+        self.catImage.image = image;
+        
+    }];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -26,6 +37,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    
+    
+}
 /*
 #pragma mark - Navigation
 

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface C4QCatFactsDetailViewController : UIViewController
+@property (nonatomic) NSString* catFactString;
+@property (nonatomic) NSString* catImageURLString;
 
 @end

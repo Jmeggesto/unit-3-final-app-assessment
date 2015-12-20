@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *blueButton;
 @property (weak, nonatomic) IBOutlet UIButton *redButton;
 @property (weak, nonatomic) IBOutlet UIButton *greenButton;
-
 @end
 
 @implementation C4QColorPickerViewController
@@ -25,5 +24,11 @@
     self.greenButton.backgroundColor = [UIColor greenColor];
     self.redButton.backgroundColor = [UIColor redColor];
 }
+
+-(IBAction)colorButtonTapped:(UIButton*)sender{
+    
+    [self.delegate colorPickerViewDidSelectColor:sender.backgroundColor];
+}
+
 
 @end
